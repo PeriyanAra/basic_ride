@@ -1,0 +1,19 @@
+{
+    "passengers_count": "Nombre de passagers",
+    "time_of_ride": "Heure de la course",
+    "en": "Anglais",
+    "de": "Allemand",
+    "fr": "Français",
+    "light_mode": "Mode lumière",
+    "dark_mode": "Mode sombre",
+    "language": "Langue",
+    "theme": "Thème",
+    "request": "Demande",
+    "could_not_create_polyline": "Impossible de créer la polyligne",
+    "pickup": "Ramassage",
+    "destination": "Destination",
+    "address_no_found_message": "Adresse non trouvée",
+    "destination_address": "Adresse de destination",
+    "pickup_address": "Adresse de ramassage",
+    "place_fetch_failed": "Échec de la récupération du lieu"
+}

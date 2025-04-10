@@ -1,0 +1,22 @@
+{
+    "passengers_count": "Number of passengers",
+    "time_of_ride": "Ride time",
+    "en": "English",
+    "ru": "Russian",
+    "de": "German",
+    "fr": "French",
+    "light_mode": "Light mode",
+    "dark_mode": "Dark mode",
+    "language": "Language",
+    "theme": "Theme",
+    "request": "Request",
+    "could_not_create_polyline": "Could not create polyline",
+    "pickup": "Pickup",
+    "destination": "Destination",
+    "address_no_found_message": "Address no found",
+    "destination_address": "Destination address",
+    "pickup_address": "Pickup address",
+    "place_fetch_failed": "Place fetch failed",
+    "enable_location_service":"Please enable location services on your phone to use all app features.",
+    "enable_location_permission":"To use all features, please enable location permission in your phone settings."
+}

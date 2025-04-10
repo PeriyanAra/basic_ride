@@ -1,0 +1,19 @@
+{
+    "passengers_count": "Anzahl der Passagiere",
+    "time_of_ride": "Fahrzeit",
+    "en": "Englisch",
+    "de": "Deutsch",
+    "fr": "Französisch",
+    "light_mode": "Heller Modus",
+    "dark_mode": "Dunkler Modus",
+    "language": "Sprache",
+    "theme": "Thema",
+    "request": "Anfrage",
+    "could_not_create_polyline": "Polylinie konnte nicht erstellt werden",
+    "pickup": "Abholung",
+    "destination": "Zielort",
+    "address_no_found_message": "Adresse nicht gefunden",
+    "destination_address": "Zieladresse",
+    "pickup_address": "Abholadresse",
+    "place_fetch_failed": "Ort konnte nicht abgerufen werden"
+}

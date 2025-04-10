@@ -1,0 +1,4 @@
+enum ValueChangeTypes {
+  increment,
+  decrement,
+}
