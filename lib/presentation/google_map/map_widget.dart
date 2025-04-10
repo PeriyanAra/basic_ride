@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:basic_ride/common/common.dart';
 import 'package:basic_ride/core/di/di_get_it_implementation.dart';
 import 'package:basic_ride/presentation/google_map/google_map_cubit/google_map_cubit.dart';
@@ -41,6 +43,8 @@ class _MapWidgetContentState extends State<MapWidgetContent> {
   late BitmapDescriptor sourceIcon;
   late BitmapDescriptor destinationIcon;
 
+  final Completer<GoogleMapController> _mapController = Completer();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +63,16 @@ class _MapWidgetContentState extends State<MapWidgetContent> {
               ),
             );
             _markers.addAll(state.markers);
+
+            if (_polylines.isNotEmpty) {
+              final bounds = getBoundsFromPolyline(_polylines.first.points);
+
+              final controller = await _mapController.future;
+
+              controller.animateCamera(
+                CameraUpdate.newLatLngBounds(bounds, 50),
+              );
+            }
           }
 
           if (state is GoogleMapCubitErrorState) {
@@ -81,6 +95,9 @@ class _MapWidgetContentState extends State<MapWidgetContent> {
           );
 
           return GoogleMap(
+            onMapCreated: (controller) {
+              _mapController.complete(controller);
+            },
             style: MapUtils.mapStyles,
             myLocationEnabled: true,
             myLocationButtonEnabled: false,
@@ -93,6 +110,25 @@ class _MapWidgetContentState extends State<MapWidgetContent> {
           );
         },
       ),
+    );
+  }
+
+  LatLngBounds getBoundsFromPolyline(List<LatLng> points) {
+    double minLat = points.first.latitude;
+    double maxLat = points.first.latitude;
+    double minLng = points.first.longitude;
+    double maxLng = points.first.longitude;
+
+    for (final point in points) {
+      if (point.latitude < minLat) minLat = point.latitude;
+      if (point.latitude > maxLat) maxLat = point.latitude;
+      if (point.longitude < minLng) minLng = point.longitude;
+      if (point.longitude > maxLng) maxLng = point.longitude;
+    }
+
+    return LatLngBounds(
+      southwest: LatLng(minLat, minLng),
+      northeast: LatLng(maxLat, maxLng),
     );
   }
 }
